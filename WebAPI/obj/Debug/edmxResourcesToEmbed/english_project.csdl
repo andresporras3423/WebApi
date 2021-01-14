@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="english_projectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="technos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="techno_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="techno_status" Type="Boolean" Nullable="false" />
+    <Property Name="users_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="users" Relationship="Self.FK_techno_users" FromRole="technos" ToRole="users" />
+    <NavigationProperty Name="words" Relationship="english_projectModel.FK_techno_words" FromRole="technos" ToRole="words" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="pass" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="technos" Relationship="Self.FK_techno_users" FromRole="users" ToRole="technos" />
+    <NavigationProperty Name="words" Relationship="english_projectModel.FK_users_words" FromRole="users" ToRole="words" />
+  </EntityType>
+  <Association Name="FK_techno_users">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="technos" Type="Self.technos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="technos">
+        <PropertyRef Name="users_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="english_projectEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="technos" EntityType="Self.technos" />
+    <EntitySet Name="users" EntityType="Self.users" />
+    <AssociationSet Name="FK_techno_users" Association="Self.FK_techno_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="technos" EntitySet="technos" />
+    </AssociationSet>
+    <EntitySet Name="words" EntityType="english_projectModel.words" />
+    <AssociationSet Name="FK_techno_words" Association="english_projectModel.FK_techno_words">
+      <End Role="technos" EntitySet="technos" />
+      <End Role="words" EntitySet="words" />
+    </AssociationSet>
+    <AssociationSet Name="FK_users_words" Association="english_projectModel.FK_users_words">
+      <End Role="users" EntitySet="users" />
+      <End Role="words" EntitySet="words" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="words">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="users_id" Type="Int32" Nullable="false" />
+    <Property Name="technos_id" Type="Int32" Nullable="false" />
+    <Property Name="word" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="translation" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="technos" Relationship="english_projectModel.FK_techno_words" FromRole="words" ToRole="technos" />
+    <NavigationProperty Name="users" Relationship="english_projectModel.FK_users_words" FromRole="words" ToRole="users" />
+  </EntityType>
+  <Association Name="FK_techno_words">
+    <End Type="english_projectModel.technos" Role="technos" Multiplicity="1" />
+    <End Type="english_projectModel.words" Role="words" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="technos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="words">
+        <PropertyRef Name="technos_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_users_words">
+    <End Type="english_projectModel.users" Role="users" Multiplicity="1" />
+    <End Type="english_projectModel.words" Role="words" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="words">
+        <PropertyRef Name="users_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
