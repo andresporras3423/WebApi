@@ -92,5 +92,79 @@ namespace WebAPI.Controllers
                 return Newtonsoft.Json.JsonConvert.SerializeObject(ts);
             }
         }
+
+        public string search_technos(string techno_name, bool? techno_status, int users_id, int search)
+        {
+            using (english_projectEntities db = new english_projectEntities())
+            {
+                List<string> ts = new List<string>();
+                if (search == 0)
+                {
+                    ts = (from t in db.technos
+                          where t.users_id == users_id &&
+                          (techno_name == null || t.techno_name == techno_name) &&
+                          (techno_status == null || t.techno_status == techno_status)
+                          select new technoModel
+                          {
+                              id = t.id,
+                              users_id = t.users_id,
+                              techno_name = t.techno_name,
+                              techno_status = t.techno_status
+                          }).ToList<technoModel>().
+                                       Select(i => Newtonsoft.Json.JsonConvert.SerializeObject(i)).
+                                       ToList<string>();
+                }
+                else if (search == 1)
+                {
+                    ts = (from t in db.technos
+                          where t.users_id == users_id &&
+                          (techno_name == null || t.techno_name.Contains(techno_name)) &&
+                          (techno_status == null || t.techno_status == techno_status)
+                          select new technoModel
+                          {
+                              id = t.id,
+                              users_id = t.users_id,
+                              techno_name = t.techno_name,
+                              techno_status = t.techno_status
+                          }).ToList<technoModel>().
+                                       Select(i => Newtonsoft.Json.JsonConvert.SerializeObject(i)).
+                                       ToList<string>();
+                }
+                else if (search == 2)
+                {
+                    ts = (from t in db.technos
+                          where t.users_id == users_id &&
+                          (techno_name == null || t.techno_name.StartsWith(techno_name)) &&
+                          (techno_status == null || t.techno_status == techno_status)
+                          select new technoModel
+                          {
+                              id = t.id,
+                              users_id = t.users_id,
+                              techno_name = t.techno_name,
+                              techno_status = t.techno_status
+                          }).ToList<technoModel>().
+                                       Select(i => Newtonsoft.Json.JsonConvert.SerializeObject(i)).
+                                       ToList<string>();
+                }
+                else if (search == 3)
+                {
+                    ts = (from t in db.technos
+                          where t.users_id == users_id &&
+                          (techno_name == null || t.techno_name.EndsWith(techno_name)) &&
+                          (techno_status == null || t.techno_status == techno_status)
+                          select new technoModel
+                          {
+                              id = t.id,
+                              users_id = t.users_id,
+                              techno_name = t.techno_name,
+                              techno_status = t.techno_status
+                          }).ToList<technoModel>().
+                                       Select(i => Newtonsoft.Json.JsonConvert.SerializeObject(i)).
+                                       ToList<string>();
+                }
+
+                return Newtonsoft.Json.JsonConvert.SerializeObject(ts);
+            }
+        }
     }
 }
