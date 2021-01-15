@@ -173,5 +173,23 @@ namespace WebAPI.Controllers
                 return Newtonsoft.Json.JsonConvert.SerializeObject(ws);
             }
         }
+        [HttpDelete]
+        public bool delete_word(int id)
+        {
+            using (english_projectEntities db = new english_projectEntities())
+            {
+                words w = db.words.Find(id);
+                try
+                {
+                    db.words.Remove(w);
+                    db.SaveChanges();
+                }
+                catch
+                {
+                    return false;
+                }
+                return true;
+            }
+        }
     }
 }
