@@ -33,7 +33,7 @@ namespace WebAPI.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPut]
         public bool update_word(int id, int technos_id, string word, string translation)
         {
             using (english_projectEntities db = new english_projectEntities())
