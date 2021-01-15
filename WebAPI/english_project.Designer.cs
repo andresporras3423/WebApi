@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\documents\cSharp_projects\WebAPI\WebAPI\english_project.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\documents\cSharp_projects\webApi_cSharp\WebAPI\english_project.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

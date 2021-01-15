@@ -237,6 +237,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>english_project.edmx</DependentUpon>
     </Compile>
+    <Compile Include="get_next_question_Result.cs">
+      <DependentUpon>english_project.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

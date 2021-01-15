@@ -50,6 +50,10 @@
       <End Role="users" EntitySet="users" />
       <End Role="words" EntitySet="words" />
     </AssociationSet>
+    <FunctionImport Name="get_next_question" ReturnType="Collection(english_projectModel.get_next_question_Result)">
+      <Parameter Name="users_id" Mode="In" Type="Int32" />
+      <Parameter Name="technos_id" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="words">
     <Key>
@@ -87,4 +91,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <ComplexType Name="get_next_question_Result">
+    <Property Type="String" Name="word" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="translation" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="techno_name" Nullable="false" MaxLength="255" />
+  </ComplexType>
 </Schema>
