@@ -43,5 +43,14 @@ namespace WebAPI
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<get_next_question_Result>("get_next_question", users_idParameter, technos_idParameter);
         }
+    
+        public virtual ObjectResult<Nullable<int>> get_random_techno(Nullable<int> users_id)
+        {
+            var users_idParameter = users_id.HasValue ?
+                new ObjectParameter("users_id", users_id) :
+                new ObjectParameter("users_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("get_random_techno", users_idParameter);
+        }
     }
 }

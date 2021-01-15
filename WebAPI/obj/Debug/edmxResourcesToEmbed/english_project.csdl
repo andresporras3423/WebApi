@@ -54,6 +54,9 @@
       <Parameter Name="users_id" Mode="In" Type="Int32" />
       <Parameter Name="technos_id" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="get_random_techno" ReturnType="Collection(Int32)">
+      <Parameter Name="users_id" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="words">
     <Key>

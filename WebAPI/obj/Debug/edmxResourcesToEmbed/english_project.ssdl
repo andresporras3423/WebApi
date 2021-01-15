@@ -68,6 +68,9 @@
     <Parameter Name="users_id" Type="int" Mode="In" />
     <Parameter Name="technos_id" Type="int" Mode="In" />
   </Function>
+  <Function Name="get_random_techno" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="users_id" Type="int" Mode="In" />
+  </Function>
   <EntityContainer Name="english_projectModelStoreContainer">
     <EntitySet Name="technos" EntityType="Self.technos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />

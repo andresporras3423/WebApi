@@ -41,5 +41,6 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="get_random_techno" FunctionName="english_projectModel.Store.get_random_techno" />
   </EntityContainerMapping>
 </Mapping>

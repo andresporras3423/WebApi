@@ -73,6 +73,9 @@
           <Parameter Name="users_id" Type="int" Mode="In" />
           <Parameter Name="technos_id" Type="int" Mode="In" />
         </Function>
+        <Function Name="get_random_techno" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="users_id" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="english_projectModelStoreContainer">
           <EntitySet Name="technos" EntityType="Self.technos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
@@ -147,6 +150,9 @@
           <FunctionImport Name="get_next_question" ReturnType="Collection(english_projectModel.get_next_question_Result)">
             <Parameter Name="users_id" Mode="In" Type="Int32" />
             <Parameter Name="technos_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="get_random_techno" ReturnType="Collection(Int32)">
+            <Parameter Name="users_id" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="words">
@@ -236,6 +242,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="get_random_techno" FunctionName="english_projectModel.Store.get_random_techno" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

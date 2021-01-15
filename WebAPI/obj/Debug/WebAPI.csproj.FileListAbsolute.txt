@@ -244,3 +244,15 @@ D:\documents\cSharp_projects\webApi_cSharp\WebAPI\obj\Debug\WebAPI.csproj.CoreCo
 D:\documents\cSharp_projects\webApi_cSharp\WebAPI\obj\Debug\WebAPI.csproj.CopyComplete
 D:\documents\cSharp_projects\webApi_cSharp\WebAPI\obj\Debug\WebAPI.dll
 D:\documents\cSharp_projects\webApi_cSharp\WebAPI\obj\Debug\WebAPI.pdb
+D:\documents\cSharp_projects\webApi_cSharp\WebAPI\bin\BouncyCastle.Crypto.dll
+D:\documents\cSharp_projects\webApi_cSharp\WebAPI\bin\ICSharpCode.SharpZipLib.dll
+D:\documents\cSharp_projects\webApi_cSharp\WebAPI\bin\NPOI.dll
+D:\documents\cSharp_projects\webApi_cSharp\WebAPI\bin\NPOI.OOXML.dll
+D:\documents\cSharp_projects\webApi_cSharp\WebAPI\bin\NPOI.OpenXml4Net.dll
+D:\documents\cSharp_projects\webApi_cSharp\WebAPI\bin\NPOI.OpenXmlFormats.dll
+D:\documents\cSharp_projects\webApi_cSharp\WebAPI\bin\BouncyCastle.Crypto.xml
+D:\documents\cSharp_projects\webApi_cSharp\WebAPI\bin\ICSharpCode.SharpZipLib.pdb
+D:\documents\cSharp_projects\webApi_cSharp\WebAPI\bin\ICSharpCode.SharpZipLib.xml
+D:\documents\cSharp_projects\webApi_cSharp\WebAPI\bin\NPOI.xml
+D:\documents\cSharp_projects\webApi_cSharp\WebAPI\bin\NPOI.OOXML.xml
+D:\documents\cSharp_projects\webApi_cSharp\WebAPI\bin\NPOI.OpenXml4Net.xml

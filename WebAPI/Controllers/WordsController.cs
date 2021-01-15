@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NPOI.SS.Formula.Functions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -192,12 +193,13 @@ namespace WebAPI.Controllers
             }
         }
 
-        public string get_next_question(int users_id, int technos_id)
+        public string get_next_question(int users_id, int? technos_id)
         {
             using (english_projectEntities db = new english_projectEntities())
             {
-                var x = db.get_next_question(users_id, technos_id);
-                return Newtonsoft.Json.JsonConvert.SerializeObject(x);
+                if (technos_id == null)  technos_id = db.get_random_techno(users_id).FirstOrDefault();
+                var question = db.get_next_question(users_id, technos_id);
+                return Newtonsoft.Json.JsonConvert.SerializeObject(question);
             }
         }
     }
