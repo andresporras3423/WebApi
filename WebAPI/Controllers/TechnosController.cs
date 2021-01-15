@@ -166,5 +166,24 @@ namespace WebAPI.Controllers
                 return Newtonsoft.Json.JsonConvert.SerializeObject(ts);
             }
         }
+
+        [HttpDelete]
+        public bool delete_techno(int id)
+        {
+            using (english_projectEntities db = new english_projectEntities())
+            {
+                technos t = db.technos.Find(id);
+                try
+                {
+                    db.technos.Remove(t);
+                    db.SaveChanges();
+                }
+                catch
+                {
+                    return false;
+                }
+                return true;
+            }
+        }
     }
 }
