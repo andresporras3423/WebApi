@@ -261,6 +261,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\technoModel.cs" />
+    <Compile Include="Models\testModel.cs" />
     <Compile Include="Models\wordModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="technos.cs">
@@ -348,6 +349,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Views\Technos\" />
     <Folder Include="Views\Tests\" />
+    <Folder Include="Views\Test\" />
     <Folder Include="Views\Users\" />
     <Folder Include="Views\Words\" />
   </ItemGroup>

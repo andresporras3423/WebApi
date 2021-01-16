@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
@@ -29,6 +30,28 @@ namespace WebAPI.Controllers
                     return false;
                 }
                 return true;
+            }
+        }
+
+        public string get_tests(int users_id)
+        {
+            using (english_projectEntities db = new english_projectEntities())
+            {
+                List<string> user_tests = new List<string>();
+                user_tests = (from ts in db.tests
+                      where ts.users_id == users_id
+                      orderby ts.id
+                      select new testModel
+                      {
+                          id = ts.id,
+                          users_id = ts.users_id,
+                          correct = ts.correct,
+                          total = ts.total,
+                          created_datetime = ts.created_datetime
+                      }).ToList<testModel>().
+                                       Select(i => Newtonsoft.Json.JsonConvert.SerializeObject(i)).
+                                       ToList<string>();
+                return Newtonsoft.Json.JsonConvert.SerializeObject(user_tests);
             }
         }
     }
