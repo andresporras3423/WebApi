@@ -19,6 +19,7 @@ namespace WebAPI
         {
             this.technos = new HashSet<technos>();
             this.words = new HashSet<words>();
+            this.tests = new HashSet<tests>();
         }
     
         public int id { get; set; }
@@ -30,5 +31,7 @@ namespace WebAPI
         public virtual ICollection<technos> technos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<words> words { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tests> tests { get; set; }
     }
 }

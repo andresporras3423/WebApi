@@ -21,6 +21,7 @@
     <Property Name="pass" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="technos" Relationship="Self.FK_techno_users" FromRole="users" ToRole="technos" />
     <NavigationProperty Name="words" Relationship="english_projectModel.FK_users_words" FromRole="users" ToRole="words" />
+    <NavigationProperty Name="tests" Relationship="english_projectModel.FK_users_tests" FromRole="users" ToRole="tests" />
   </EntityType>
   <Association Name="FK_techno_users">
     <End Role="users" Type="Self.users" Multiplicity="1" />
@@ -57,6 +58,11 @@
     <FunctionImport Name="get_random_techno" ReturnType="Collection(Int32)">
       <Parameter Name="users_id" Mode="In" Type="Int32" />
     </FunctionImport>
+    <EntitySet Name="tests" EntityType="english_projectModel.tests" />
+    <AssociationSet Name="FK_users_tests" Association="english_projectModel.FK_users_tests">
+      <End Role="users" EntitySet="users" />
+      <End Role="tests" EntitySet="tests" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="words">
     <Key>
@@ -99,4 +105,27 @@
     <Property Type="String" Name="translation" Nullable="false" MaxLength="255" />
     <Property Type="String" Name="techno_name" Nullable="false" MaxLength="255" />
   </ComplexType>
+  <EntityType Name="tests">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="users_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="users" Relationship="english_projectModel.FK_users_tests" FromRole="tests" ToRole="users" />
+    <Property Name="created_datetime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="total" Type="Int32" Nullable="false" />
+    <Property Name="correct" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_users_tests">
+    <End Type="english_projectModel.users" Role="users" Multiplicity="1" />
+    <End Type="english_projectModel.tests" Role="tests" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tests">
+        <PropertyRef Name="users_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

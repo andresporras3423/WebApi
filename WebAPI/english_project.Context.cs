@@ -30,6 +30,7 @@ namespace WebAPI
         public virtual DbSet<technos> technos { get; set; }
         public virtual DbSet<users> users { get; set; }
         public virtual DbSet<words> words { get; set; }
+        public virtual DbSet<tests> tests { get; set; }
     
         public virtual ObjectResult<get_next_question_Result> get_next_question(Nullable<int> users_id, Nullable<int> technos_id)
         {

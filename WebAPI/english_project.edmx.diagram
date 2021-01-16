@@ -11,6 +11,8 @@
         <EntityTypeShape EntityType="english_projectModel.words" Width="1.5" PointX="5.25" PointY="0.75" />
         <AssociationConnector Association="english_projectModel.FK_techno_words" />
         <AssociationConnector Association="english_projectModel.FK_users_words" />
+        <EntityTypeShape EntityType="english_projectModel.tests" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <AssociationConnector Association="english_projectModel.FK_users_tests" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
