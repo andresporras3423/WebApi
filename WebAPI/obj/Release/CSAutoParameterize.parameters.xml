@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="english_projectEntities-Web.config Connection String" description="english_projectEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/english_project.csdl|res://*/english_project.ssdl|res://*/english_project.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=DESKTOP-C4J7U97\SQLEXPRESS;initial catalog=english_project;persist security info=True;user id=oscar;password=12345;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\documents\\cSharp_projects\\webApi_cSharp\\WebAPI\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='english_projectEntities']/@connectionString" />
+  </parameter>
+</parameters>

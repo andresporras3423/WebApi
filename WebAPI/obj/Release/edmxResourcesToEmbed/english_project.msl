@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="english_projectModelStoreContainer" CdmEntityContainer="english_projectEntities">
+    <EntitySetMapping Name="technos">
+      <EntityTypeMapping TypeName="english_projectModel.technos">
+        <MappingFragment StoreEntitySet="technos">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="techno_name" ColumnName="techno_name" />
+          <ScalarProperty Name="techno_status" ColumnName="techno_status" />
+          <ScalarProperty Name="users_id" ColumnName="users_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="english_projectModel.users">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="words">
+      <EntityTypeMapping TypeName="english_projectModel.words">
+        <MappingFragment StoreEntitySet="words">
+          <ScalarProperty Name="translation" ColumnName="translation" />
+          <ScalarProperty Name="word" ColumnName="word" />
+          <ScalarProperty Name="technos_id" ColumnName="technos_id" />
+          <ScalarProperty Name="users_id" ColumnName="users_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="get_next_question" FunctionName="english_projectModel.Store.get_next_question">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="english_projectModel.get_next_question_Result">
+          <ScalarProperty Name="word" ColumnName="word" />
+          <ScalarProperty Name="translation" ColumnName="translation" />
+          <ScalarProperty Name="techno_name" ColumnName="techno_name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="get_random_techno" FunctionName="english_projectModel.Store.get_random_techno" />
+    <EntitySetMapping Name="tests">
+      <EntityTypeMapping TypeName="english_projectModel.tests">
+        <MappingFragment StoreEntitySet="tests">
+          <ScalarProperty Name="correct" ColumnName="correct" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="created_datetime" ColumnName="created_datetime" />
+          <ScalarProperty Name="users_id" ColumnName="users_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
